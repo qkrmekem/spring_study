@@ -30,6 +30,7 @@ public class MemberService {
         return member.getId();
     }
 
+    //ctrl + alt + m : 메소드로 추출
     private void validateDuplicateMember(Member member) {
         memberRepository.findByName(member.getName())
                 .ifPresent(m -> {
