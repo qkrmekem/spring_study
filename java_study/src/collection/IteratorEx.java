@@ -14,7 +14,7 @@ public class IteratorEx {
         v.add(2, 100);
 
         // Iterator를 이용하여 모든 정수 출력
-        Iterator<Integer> it = v.iterator();
+        Iterator<Integer> it = v.iterator(); // Iterator 생성
         // 다음 요소가 남아있으면 true
         while (it.hasNext()){
             //next() 다음 요소 리턴
