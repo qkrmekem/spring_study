@@ -6,22 +6,26 @@ import hello.core.discount.RateDiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
 import hello.core.member.MemoryMemberRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
+//@RequiredArgsConstructor // 필수값(final)을 포함하는 생성자를 만들어줌
 public class OrderServiceImpl implements OrderService{
 
 //    생성자 주입
-//    private final MemberRepository memberRepository;
-//    private final DiscountPolicy discountPolicy;
-//
-//    // @Autowired(required=false) : 주입할 대상이 없어도 동작하게 만듦
-//    @Autowired
-//    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
-//        this.memberRepository = memberRepository;
-//        this.discountPolicy = discountPolicy;
-//    }
+    private final MemberRepository memberRepository;
+    private final DiscountPolicy discountPolicy;
+
+    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }
+
+    // @Autowired(required=false) : 주입할 대상이 없어도 동작하게 만듦
+
 
 //    setter주입
 //    private MemberRepository memberRepository;
@@ -39,8 +43,8 @@ public class OrderServiceImpl implements OrderService{
 //    }
 
     //    필드 주입
-    @Autowired private MemberRepository memberRepository;
-    @Autowired private DiscountPolicy discountPolicy;
+//    @Autowired private MemberRepository memberRepository;
+//    @Autowired private DiscountPolicy discountPolicy;
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {

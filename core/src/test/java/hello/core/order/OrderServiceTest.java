@@ -31,11 +31,11 @@ public class OrderServiceTest {
         Assertions.assertThat(order.getDiscountPrice()).isEqualTo(1000);
     }
 
-    @Test
-    void FieldInjectionTest(){
-        OrderServiceImpl orderService = new OrderServiceImpl();
-        // 컨테이너에서 빈을 가져오는게 아니라 새로운 객체를 생성해서 테스트 하는 것이기 때문에
-        // OrderServiceImpl에 있는 @Autowired가 먹지 않음
-        orderService.createOrder(1L, "itemA", 10000);
-    }
+//    @Test
+//    void FieldInjectionTest(){
+//        OrderServiceImpl orderService = new OrderServiceImpl();
+//        // 컨테이너에서 빈을 가져오는게 아니라 새로운 객체를 생성해서 테스트 하는 것이기 때문에
+//        // OrderServiceImpl에 있는 @Autowired가 먹지 않음
+//        orderService.createOrder(1L, "itemA", 10000);
+//    }
 }
